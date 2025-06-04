@@ -18,10 +18,7 @@ class WalletViewSet(
 ):
     serializer_class = WalletSerializer
     lookup_field = 'id'
-
-    def get_queryset(self):
-        queryset = Wallet.objects.all()
-        return queryset
+    queryset = Wallet.objects.all()
 
 
 class WalletOperationsViewSet(

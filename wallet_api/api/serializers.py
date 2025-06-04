@@ -40,11 +40,6 @@ class WalletOperationsSerializer(serializers.ModelSerializer):
             )
         return value
 
-    def validate_wallet(self, value):
-        if Wallet.objects.filter(id=value).exists():
-            return value
-        raise serializers.ValidationError('Кошелек отсутствет')
-
     def create(self, validated_data):
         wallet_uuid = self.context['view'].kwargs.get('wallet_id')
         try:
